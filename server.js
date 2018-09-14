@@ -18,21 +18,14 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
-// your first API endpoint... 
-app.get("/api/hello", function (req, res) {
-  res.json({greeting: 'hello API'});
-});
-
 app.get('/api/timestamp/:date_string', (req, res) => {
-  res.send('<h2 style="color: azure;">API Endpoint Reached</h1>')
+  //res.send('<h2 style="color: forestgreen;">API Endpoint reached successfully!</h1>');
+  res.send(req.params);
   
-
 });
 
 
-
-// listen for requests :)
+// listen for requests
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
