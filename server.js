@@ -24,8 +24,9 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get('/api/timestamp', (req, res) => {
-  res.send('endpoint reached');
+app.get('/api/timestamp/:date_string', (req, res) => {
+  res.send('<h2 style="color: azure;">API Endpoint Reached</h1>')
+  
 
 });
 
