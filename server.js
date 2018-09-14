@@ -26,17 +26,28 @@ app.get('/api/timestamp/:date_string', (req, res) => {
   let regex = /\d{4}-?\d{2}-?\d{2}/g;
     
   if(regex.test(dateString)){
-  // if(Date.parse(dateString)){
     // date_string passes regex validation
-
+    // let date = new Date();
+    
+//     if(dateString.split('').includes('-')){
+//     // date_string is valid and contains ' - ' characters
+//       let dateArr = dateString.split('-');
+      
+      
+//     } else {
+//     // date_string is valid but does NOT include " - " characters
+    
+//     }
+    
+    
     // res.send('<h2 style="color: forestgreen;">query validated</h1>');
-    dateString.split("-")
-    let date = new Date();
-    res.json({"unix": date.getTime(dateString), "utc" : date.toUTCString(dateString) });
-  } else {
+
+    res.json({"unix": Date.getTime(dateString), "utc" : Date.toUTCString(dateString) });
+    } else {
   // fails regex test
-  res.json({"unix": null, "utc" : "Invalid Date" });
-  }
+    res.json({"unix": null, "utc" : "Invalid Date" });
+  }  
+  
 });
 
 
