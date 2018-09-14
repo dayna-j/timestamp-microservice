@@ -18,7 +18,7 @@ app.get("/", function (req, res) {
 
 
 app.get('/api/timestamp', (req,res) => {
-  // handler for empty request
+  // handler for empty request.  Satisfies user story #3
   let dateString = req.params.date_string;
   let date = new Date();
   res.json({"unix": date.getTime(dateString), "utc" : date.toUTCString(dateString) });
@@ -30,7 +30,7 @@ app.get('/api/timestamp/:date_string', (req, res) => {
   
   // date_string is received from the browser as a string
   let dateString = req.params.date_string;
-  //console.log(typeof req.params.date_string);
+  console.log(typeof req.params.date_string);
   let regex = /\d{4}-?\d{2}-?\d{2}/g;
     
   if(regex.test(dateString)){
