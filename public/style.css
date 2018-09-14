@@ -4,8 +4,8 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	color: #222;
-	background-color: #FaFaFa;
-  background-color: azure;
+/* 	background-color: #FaFaFa; */
+  background-color: #E6D6ED;
 	text-align: center;
 	line-height: 1.4em;
 }
