@@ -26,6 +26,7 @@ app.get('/api/timestamp/:date_string', (req, res) => {
   let regex = /\d{4}-?\d{2}-?\d{2}/g;
     
   if(regex.test(dateString)){
+  // if(Date.parse(dateString)){
     // date_string passes regex validation
 
     // res.send('<h2 style="color: forestgreen;">query validated</h1>');
