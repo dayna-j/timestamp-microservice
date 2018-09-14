@@ -20,7 +20,9 @@ app.get("/", function (req, res) {
 
 app.get('/api/timestamp/:date_string', (req, res) => {
   //res.send('<h2 style="color: forestgreen;">API Endpoint reached successfully!</h1>');
+  // if(res.params.date_string == null) {res.send(new Date())}
   res.send(req.params);
+  
   
 });
 
