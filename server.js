@@ -30,7 +30,7 @@ app.get('/api/timestamp/:date_string', (req, res) => {
   
   // date_string is received from the browser as a string
   let dateString = req.params.date_string;
-  console.log(typeof req.params.date_string);
+  // console.log(typeof req.params.date_string);
   let regex = /\d{4}-?\d{2}-?\d{2}/g;
     
   if(regex.test(dateString)){
