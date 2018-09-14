@@ -23,14 +23,17 @@ app.get('/api/timestamp/:date_string', (req, res) => {
   // if(res.params.date_string == null) {res.send(new Date())}
   let query = req.params.date_string;
   // res.send(req.params);
-  let regex = /\d{4}-\d{2}-\d{2/;
-    
-  if(regex.test(query)){
-    res.send('<h2 style="color: forestgreen;">query validated</h1>');
-  }
+  let regex = /\d{4}-?\d{2}-?\d{2}/g;
   
-  if(!regex.test(query)) {
-    // fails regex
+  
+  
+  if(regex.test(query)){
+//    res.send('<h2 style="color: forestgreen;">query validated</h1>');
+    
+    
+    
+  } else {
+  // fails regex
     
   res.json({"unix": null, "utc" : "Invalid Date" });
     
