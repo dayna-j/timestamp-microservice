@@ -30,10 +30,6 @@ app.get('/api/timestamp/:date_string', (req, res) => {
   // date_string is received from the browser as a string
   let dateString = req.params.date_string;
   
-  // console.log(typeof req.params.date_string);
-  // console.log(dateString);
-  // console.log(dateString.split('-'));
-  
   let regex = /\d{4}-?\d{2}-?\d{2}/g;
     
   if(regex.test(dateString)) {
@@ -47,9 +43,7 @@ app.get('/api/timestamp/:date_string', (req, res) => {
       let year = dateString.substring(0,4);
       let month = dateString.substring(4,6);
       let day = dateString.substring(6,8);
-      // console.log(day);
-      let date = new Date(year,month,day);
-      
+      let date = new Date(`${year}-${month}-${day}`)
       res.json({"unix": date.getTime(), "utc" : date.toUTCString() });
     }
   } else {
