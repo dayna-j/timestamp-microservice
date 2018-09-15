@@ -48,10 +48,14 @@ app.get('/api/timestamp/:date_string', (req, res) => {
       res.json({"unix": date.getTime(), "utc" : date.toUTCString() });
     } else {
     // date_string is valid but does NOT include " - " characters
-      let year = dateString.substring(0,3);
+      let year = dateString.substring(0,4);
       let month = dateString.substr(4,6);
       let day = dateString.substr(6,8);
-      let date = new Date(year,month,day);
+      
+      let newStr = `${year}-${month}-${day}`
+      
+      let date = new Date(newStr);
+      
       res.json({"unix": date.getTime(), "utc" : date.toUTCString() });
     }
     
