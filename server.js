@@ -22,7 +22,6 @@ app.get('/api/timestamp', (req,res) => {
   let dateString = req.params.date_string;
   let date = new Date();
   res.json({"unix": date.getTime(dateString), "utc" : date.toUTCString(dateString) });
-
 });
 
 app.get('/api/timestamp/:date_string', (req, res) => {
@@ -37,11 +36,8 @@ app.get('/api/timestamp/:date_string', (req, res) => {
   
   let regex = /\d{4}-?\d{2}-?\d{2}/g;
     
-  if(regex.test(dateString)){
+  if(regex.test(dateString)) {
     // date_string passes regex validation
-    
-    
-    
     if(dateString.split('').includes('-')) {
     // date_string is valid and contains ' - ' characters
       let date = new Date(dateString);
@@ -49,23 +45,18 @@ app.get('/api/timestamp/:date_string', (req, res) => {
     } else {
     // date_string is valid but does NOT include " - " characters
       let year = parseInt(dateString.substring(0,4));
-      let month = parseInt(dateString.substr(4,5));
-      let day = parseInt(dateString.substr(6,8));
+      let month = parseInt(dateString.substring(4,6));
+      let day = parseInt(dateString.substring(6,8));
       console.log(month);
       let date = new Date(year,month,day);
       
       res.json({"unix": date.getTime(), "utc" : date.toUTCString() });
     }
-    
-    
   } else {
   // fails regex test
     res.json({"unix": null, "utc" : "Invalid Date" });
   }  
-  
 });
-
-
 // listen for requests
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
