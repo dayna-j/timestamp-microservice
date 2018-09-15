@@ -50,7 +50,7 @@ app.get('/api/timestamp/:date_string', (req, res) => {
     // date_string is valid but does NOT include " - " characters
       let year = parseInt(dateString.substring(0,4));
       let month = parseInt(dateString.substr(4,5));
-      let day = parseInt(dateString.substr(5,7));
+      let day = parseInt(dateString.substr(6,8));
       console.log(month);
       let date = new Date(year,month,day);
       
