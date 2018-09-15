@@ -42,15 +42,15 @@ app.get('/api/timestamp/:date_string', (req, res) => {
     
     let date = new Date(dateString);
     
-//     if(dateString.split('').includes('-')){
-//     // date_string is valid and contains ' - ' characters
-//       let dateArr = dateString.split('-');
+    if(dateString.split('').includes('-')) {
+    // date_string is valid and contains ' - ' characters
+      let dateArr = dateString.split('-');
       
       
-//     } else {
-//     // date_string is valid but does NOT include " - " characters
+    } else {
+    // date_string is valid but does NOT include " - " characters
     
-//     }
+    }
     
     res.json({"unix": date.getTime(), "utc" : date.toUTCString() });
     } else {
